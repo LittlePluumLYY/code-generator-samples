@@ -21,7 +21,7 @@
         <dependency>
             <groupId>com.github.zhuyizhuo</groupId>
             <artifactId>code-generator</artifactId>
-            <version>1.4.2</version>
+            <version>1.5.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>

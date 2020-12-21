@@ -1,7 +1,7 @@
 package online.zhuyizhuo.generator.sample;
 
 import com.alibaba.fastjson.JSON;
-import com.github.zhuyizhuo.generator.mybatis.enums.DbTypeEnums;
+import com.github.zhuyizhuo.generator.enums.DbTypeEnums;
 import com.github.zhuyizhuo.generator.mybatis.generator.GeneratorBuilder;
 import com.github.zhuyizhuo.generator.mybatis.generator.extension.CustomizeModuleInfo;
 import com.github.zhuyizhuo.generator.mybatis.generator.extension.JavaModuleInfo;

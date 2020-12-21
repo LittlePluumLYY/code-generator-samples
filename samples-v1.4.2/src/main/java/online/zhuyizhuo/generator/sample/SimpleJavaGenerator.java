@@ -1,6 +1,6 @@
 package online.zhuyizhuo.generator.sample;
 
-import com.github.zhuyizhuo.generator.mybatis.enums.DbTypeEnums;
+import com.github.zhuyizhuo.generator.enums.DbTypeEnums;
 import com.github.zhuyizhuo.generator.mybatis.generator.Generator;
 import com.github.zhuyizhuo.generator.mybatis.generator.GeneratorBuilder;
 

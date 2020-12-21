@@ -1,7 +1,6 @@
 package online.zhuyizhuo.generator.sample;
 
-import com.github.zhuyizhuo.generator.mybatis.enums.DbTypeEnums;
-import com.github.zhuyizhuo.generator.mybatis.enums.ModuleEnums;
+import com.github.zhuyizhuo.generator.enums.DbTypeEnums;
 import com.github.zhuyizhuo.generator.mybatis.generator.Generator;
 import com.github.zhuyizhuo.generator.mybatis.generator.GeneratorBuilder;
 import com.github.zhuyizhuo.generator.mybatis.generator.extension.CustomizeModuleInfo;
@@ -25,17 +24,21 @@ public class MybatisPlusGenerator {
         String dbType= DbTypeEnums.MYSQL.name();
         /** [必选]驱动包路径 */
         String dbDriver= "com.mysql.cj.jdbc.Driver";
-        /** [必选]数据库链接 需改为你的数据库链接 */
-        String dbUrl= "jdbc:mysql://localhost:3306/management?useUnicode=true&serverTimezone=Asia/Shanghai";
+/** [必选]数据库链接 需改为你的数据库链接 */
+        String dbUrl= "jdbc:mysql://172.30.136.100:3306/3upsi_v3?useUnicode=true&serverTimezone=Asia/Shanghai";
+//        String dbUrl= "jdbc:mysql://192.168.17.99:3307/psi_3u?useUnicode=true&serverTimezone=Asia/Shanghai";
         /** [必选]表空间 如 sql 为 select * from management.demo; 则 management 为表空间 */
-        String tableSchema= "你的数据库表空间";
+        String tableSchema= "temp";
         /** [必选]数据库用户名  */
-        String dbUserName= "你的数据库用户名";
+        String dbUserName= "psi";
+//        String dbUserName= "root";
         /** [必选]数据库密码  */
-        String dbPassword= "你的数据库密码";
+//        String dbPassword= "masterpwd";
+        String dbPassword= "3Upsi@123";
 
         /** [建议]要生成的表名 多个可用英文逗号隔开; 缺省为当前表空间下所有表; mysql 数据库表名大小写敏感 */
-        String tableNames = "";
+        String tableNames = "paxer";
+
         /** [建议]生成类所在的基础包路径 */
         String basePackage = "com.generator.mybatis.plus";
         /** [建议]生成的代码注释 作者 缺省值为 TODO */
@@ -53,19 +56,19 @@ public class MybatisPlusGenerator {
                         "db.password=" + dbPassword,
                         "generate.java.comment.author=" + author)
                 //替换系统 POJO 模板  替换系统模板  moduleType 与枚举 ModuleEnums 中模块名一致即可替换该模块
-                .addJavaTemplate(new JavaModuleInfo(ModuleEnums.POJO.toString(),
+                .addJavaTemplate(new JavaModuleInfo("POJO",
                         "/template/mybatisplus/LombokMybatisPlusModel.ftl",
                         basePackage + ".entity",
                         outputPath,
                         "{0}"))
                 //替换系统 MAPPER 模板  替换系统模板 moduleType 与枚举 ModuleEnums 中模块名一致即可替换该模块
-                .addJavaTemplate(new JavaModuleInfo(ModuleEnums.MAPPER.toString(),
+                .addJavaTemplate(new JavaModuleInfo("MAPPER",
                         "/template/mybatisplus/MybatisPlusMapper.ftl",
                         basePackage+ ".repository",
                         outputPath,
                         "{0}Mapper"))
                 //替换系统 XML 模板 注意 xml 模板使用 CustomizeModuleInfo
-                .addCustomizeModuleTemplate(new CustomizeModuleInfo(ModuleEnums.XML.toString(),
+                .addCustomizeModuleTemplate(new CustomizeModuleInfo("XML",
                         "/template/mybatisplus/mybatis_xml.ftl",
                         System.getProperty("user.dir")+"/src/main/resources/customize/xml/{0}.xml",
                         "{0}"))

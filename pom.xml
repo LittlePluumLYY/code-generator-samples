@@ -12,6 +12,13 @@
         <module>samples-v1.5.0</module>
         <module>samples-v1.4.2</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.zhuyizhuo</groupId>
+            <artifactId>code-generator</artifactId>
+            <version>1.5.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

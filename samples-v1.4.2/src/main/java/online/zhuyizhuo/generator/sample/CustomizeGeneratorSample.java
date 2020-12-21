@@ -1,7 +1,6 @@
 package online.zhuyizhuo.generator.sample;
 
-import com.github.zhuyizhuo.generator.mybatis.enums.MethodEnums;
-import com.github.zhuyizhuo.generator.mybatis.enums.ModuleEnums;
+import com.github.zhuyizhuo.generator.enums.MethodEnums;
 import com.github.zhuyizhuo.generator.mybatis.generator.Generator;
 import com.github.zhuyizhuo.generator.mybatis.generator.GeneratorBuilder;
 import com.github.zhuyizhuo.generator.utils.GeneratorStringUtils;
@@ -30,7 +29,7 @@ public class CustomizeGeneratorSample {
                 .fieldType2JdbcType("bit", JdbcType.NUMERIC)
                 // 自定义模块生成文件名称  传入 ModuleEnums 即模块类型
                 // 自定义模块名称优先级高于配置文件中配置的模块名称格式化
-                .addModuleNameFormat(ModuleEnums.MAPPER, name ->
+                .addModuleNameFormat("MAPPER", name ->
                         getRealName(name) +"Dao")
                 // 自定义方法名格式化 传入 MethodEnums.ALL_METHOD 则适用所有方法名格式化
                 .addMethodNameFormat(MethodEnums.ALL_METHOD, name ->
